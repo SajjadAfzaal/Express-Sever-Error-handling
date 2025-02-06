@@ -2,7 +2,18 @@ const express = require('express');
 const app = express();
 
 app.get('/', function(req, res, next){
-    res.send("Hello World!");
+    try{
+        res.send("Hello World!");
+    }
+    catch(err){
+        next(err);
+    }
+    
+});
+
+//Error handler
+app.use((err, req, res, next,)=>{
+    res.status(500).send(err.message);
 });
 
 // Server checking
