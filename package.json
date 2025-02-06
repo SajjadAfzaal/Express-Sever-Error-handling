@@ -1,0 +1,23 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "express server error handling",
+  "homepage": "https://github.com/SajjadAfzaal/Express-Sever-Error-handling#readme",
+  "bugs": {
+    "url": "https://github.com/SajjadAfzaal/Express-Sever-Error-handling/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SajjadAfzaal/Express-Sever-Error-handling.git"
+  },
+  "license": "ISC",
+  "author": "Sajjad Afzaal",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
