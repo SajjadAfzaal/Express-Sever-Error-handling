@@ -13,4 +13,8 @@ db.on("open", function () {
   debuglog("MongoDatabase Connected successfully");
 });
 
+// db.on("open", function () {
+//   console.log("MongoDatabase Connected successfully");
+// });
+
 module.exports = db;
