@@ -27,6 +27,17 @@ app.get("/read", async function (req, res) {
   res.send(users);
 });
 
+// Sample user updation
+app.get("/update", async function (req, res) {
+  let updatedUser = await userModel.findOneAndUpdate(
+    { name: "Sajjad Afzaal" },
+    { name: "Muhammad Sajjad" },
+    { new: true }
+  );
+
+  res.send(updatedUser);
+});
+
 let data = [1, 2, 3, 4, 5];
 
 app.get("/", function (req, res, next) {
