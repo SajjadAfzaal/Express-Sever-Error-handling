@@ -3,6 +3,20 @@ const app = express();
 const mongooseconnection = require("./config/mongoose");
 
 const userModel = require("./models/user");
+const debuglog = require("debuglog")("development:app");
+
+// User model creation sample
+app.get("/create", async function (req, res, next) {
+  let createdUser = await userModel.create({
+    username: "Sajjad123",
+    name: "Sajjad Afzaal",
+    email: "sajjad@hotmail",
+    password: "pass1234",
+  });
+
+  debuglog("User Created");
+  res.send(createdUser);
+});
 
 let data = [1, 2, 3, 4, 5];
 
