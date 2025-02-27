@@ -38,6 +38,16 @@ app.get("/update", async function (req, res) {
   res.send(updatedUser);
 });
 
+// Sample user deletion
+app.get("/delete", async function (req, res) {
+  let deletedUser = await userModel.findOneAndDelete({
+    name: "Muhammad Sajjad",
+  });
+
+  res.send(deletedUser);
+});
+
+// routes testing with errors handling
 let data = [1, 2, 3, 4, 5];
 
 app.get("/", function (req, res, next) {
