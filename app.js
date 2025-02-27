@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const mongooseconnection = require("./config/mongoose");
 
+const userModel = require("./models/user");
+
 let data = [1, 2, 3, 4, 5];
 
 app.get("/", function (req, res, next) {
