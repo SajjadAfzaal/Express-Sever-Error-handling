@@ -18,6 +18,15 @@ app.get("/create", async function (req, res, next) {
   res.send(createdUser);
 });
 
+// sample user reading
+app.get("/read", async function (req, res) {
+  // let user = await userModel.findOne({ name: "Sajjad Afzaal" });
+  let users = await userModel.find();
+
+  debuglog("Users found");
+  res.send(users);
+});
+
 let data = [1, 2, 3, 4, 5];
 
 app.get("/", function (req, res, next) {
