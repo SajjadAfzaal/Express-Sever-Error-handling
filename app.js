@@ -5,6 +5,53 @@ const mongooseconnection = require("./config/mongoose");
 const userModel = require("./models/user");
 const debuglog = require("debuglog")("development:app");
 
+// Testing in postman
+app.use(express.json());
+app.use(express.urlencoded({ extende: true }));
+
+//delete user
+app.get("/delete/:username", async function (req, res) {
+  let userDel = await userModel.findOneAndDelete({
+    username: req.params.username,
+  });
+  res.send(userDel);
+});
+
+//User updation
+app.get("/update/:username", async function (req, res) {
+  let { name, username, email } = req.body;
+  let userUp = await userModel.findOneAndUpdate(
+    { username: req.params.username },
+    { name, username, email },
+    { new: true }
+  );
+  res.send(userUp);
+});
+
+// Users reading
+app.get("/users", async function (req, res) {
+  let users = await userModel.find();
+  res.send(users);
+});
+app.get("/users/:username", async function (req, res) {
+  let user = await userModel.findOne({ username: req.params.username });
+  res.send(user);
+});
+
+// Users creation
+app.post("/create", async function (req, res) {
+  let { name, email, password, username } = req.body;
+  let newCreatedUser = await userModel.create({
+    name,
+    username,
+    email,
+    password,
+  });
+
+  res.send(newCreatedUser);
+});
+
+//CRUD operations with mongo document
 // User model creation sample
 app.get("/create", async function (req, res, next) {
   let createdUser = await userModel.create({
